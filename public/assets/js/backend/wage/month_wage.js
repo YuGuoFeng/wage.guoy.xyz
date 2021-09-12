@@ -5,13 +5,13 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 初始化表格参数配置
             Table.api.init({
                 extend: {
-                    index_url: 'product/process/index' + location.search,
-                    add_url: 'product/process/add',
-                    edit_url: 'product/process/edit',
-                    del_url: 'product/process/del',
-                    multi_url: 'product/process/multi',
-                    import_url: 'product/process/import',
-                    table: 'process',
+                    index_url: 'wage/month_wage/index' + location.search,
+                    add_url: 'wage/month_wage/add',
+                    edit_url: 'wage/month_wage/edit',
+                    del_url: 'wage/month_wage/del',
+                    multi_url: 'wage/month_wage/multi',
+                    import_url: 'wage/month_wage/import',
+                    table: 'employees_month_wage',
                 }
             });
 
@@ -26,13 +26,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'code_number', title: __('Code_number'), operate: 'LIKE'},
-                        {field: 'product_id', title: __('Product_id')},
-                        {field: 'describe', title: __('Describe'), operate: 'LIKE'},
-                        {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'employees_id', title: __('Employees_id')},
+                        {field: 'employees_process_wage', title: __('Employees_process_wage'), operate:'BETWEEN'},
+                        {field: 'employees_basis_wage', title: __('Employees_basis_wage'), operate:'BETWEEN'},
+                        {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN'},
+                        {field: 'years', title: __('Years')},
+                        {field: 'month', title: __('Month')},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
-                        {field: 'product.name', title: __('Product.name'), operate: 'LIKE'},
+                        {field: 'employees.code_number', title: __('Employees.code_number'), operate: 'LIKE'},
+                        {field: 'employees.name', title: __('Employees.name'), operate: 'LIKE'},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]
@@ -53,7 +56,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
 
             // 初始化表格
             table.bootstrapTable({
-                url: 'product/process/recyclebin' + location.search,
+                url: 'wage/month_wage/recyclebin' + location.search,
                 pk: 'id',
                 sortName: 'id',
                 columns: [
@@ -79,7 +82,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                                     text: __('Restore'),
                                     classname: 'btn btn-xs btn-info btn-ajax btn-restoreit',
                                     icon: 'fa fa-rotate-left',
-                                    url: 'product/process/restore',
+                                    url: 'wage/month_wage/restore',
                                     refresh: true
                                 },
                                 {
@@ -87,7 +90,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                                     text: __('Destroy'),
                                     classname: 'btn btn-xs btn-danger btn-ajax btn-destroyit',
                                     icon: 'fa fa-times',
-                                    url: 'product/process/destroy',
+                                    url: 'wage/month_wage/destroy',
                                     refresh: true
                                 }
                             ],

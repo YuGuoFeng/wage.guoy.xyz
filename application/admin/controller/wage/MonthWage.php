@@ -1,27 +1,27 @@
 <?php
 
-namespace app\admin\controller\product;
+namespace app\admin\controller\wage;
 
 use app\common\controller\Backend;
 
 /**
- * 工序管理
+ * 员工月汇总工资
  *
  * @icon fa fa-circle-o
  */
-class Process extends Backend
+class MonthWage extends Backend
 {
     
     /**
-     * Process模型对象
-     * @var \app\common\model\Process
+     * MonthWage模型对象
+     * @var \app\common\model\MonthWage
      */
     protected $model = null;
 
     public function _initialize()
     {
         parent::_initialize();
-        $this->model = new \app\common\model\Process;
+        $this->model = new \app\common\model\MonthWage;
 
     }
 
@@ -54,14 +54,14 @@ class Process extends Backend
             list($where, $sort, $order, $offset, $limit) = $this->buildparams();
 
             $list = $this->model
-                    ->with(['product'])
+                    ->with(['employees'])
                     ->where($where)
                     ->order($sort, $order)
                     ->paginate($limit);
 
             foreach ($list as $row) {
                 
-                $row->getRelation('product')->visible(['name']);
+                $row->getRelation('employees')->visible(['code_number','name']);
             }
 
             $result = array("total" => $list->total(), "rows" => $list->items());
