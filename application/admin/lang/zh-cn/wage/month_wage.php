@@ -7,7 +7,7 @@ return [
     'Json'                   => '其他补助',
     'Json key'               => '名称',
     'Json value'             => '值',
-    'Total_amount'           => '合计金额[工序单价x工序数量]',
+    'Total_amount'           => '合计金额',
     'Years'                  => '年',
     'Month'                  => '月',
     'Createtime'             => '创建时间',

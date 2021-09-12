@@ -25,17 +25,26 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'id', title: __('Id')},
-                        {field: 'employees_id', title: __('Employees_id')},
-                        {field: 'employees_process_wage', title: __('Employees_process_wage'), operate:'BETWEEN'},
-                        {field: 'employees_basis_wage', title: __('Employees_basis_wage'), operate:'BETWEEN'},
-                        {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN'},
-                        {field: 'years', title: __('Years')},
-                        {field: 'month', title: __('Month')},
-                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
-                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
-                        {field: 'employees.code_number', title: __('Employees.code_number'), operate: 'LIKE'},
-                        {field: 'employees.name', title: __('Employees.name'), operate: 'LIKE'},
+                        {field: 'id', title: __('Id'), operate: false},
+                        {field: 'employees_id', title: __('Employees_id'), visible: false,searchList:$.getJSON("employees/employees/userList")},
+
+                        {field: 'years', title: __('Years'),searchList: $.getJSON('wage/employees_process/years')},
+                        {field: 'month', title: __('Month'),searchList: $.getJSON('wage/employees_process/month')},
+                        {field: 'employees.code_number', title: __('Employees.code_number'), operate: 'LIKE', operate: false},
+                        {field: 'employees.name', title: __('Employees.name'), operate: 'LIKE', operate: false},
+                        
+                        {field: 'employees_process_wage', title: __('Employees_process_wage'), operate:'BETWEEN', operate: false},
+                        {field: 'employees_basis_wage', title: __('Employees_basis_wage'), operate:'BETWEEN', operate: false},
+                        {field: 'json', title: __('Json'), operate: false},
+                        {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
+
+                        
+                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
+                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
+                       
+
+                        
+
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

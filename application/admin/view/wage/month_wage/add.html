@@ -1,12 +1,32 @@
 <form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Employees_id')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-employees_id" data-rule="required" data-source="employees/index" class="form-control selectpage" name="row[employees_id]" type="text" value="">
+        <label class="control-label col-xs-12 col-sm-2">月份:</label>
+        <div class="col-xs-12 col-sm-2">
+            <!-- <input id="c-years" data-rule="required" data-source="wage/month_wage/years" class="form-control selectpage"  name="row[years]" type="number"> -->
+            <select id="c-years" data-rule="required" class="form-control selectpicker" name="row[years]">
+                {foreach name="years" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <!-- <input id="c-month" data-rule="required" class="form-control" name="row[month]" type="number"> -->
+            <select id="c-month" data-rule="required" class="form-control selectpicker" name="row[month]">
+                {foreach name="month" item="vo"}
+                    <option value="{$key}" {in name="key" value=""}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
         </div>
     </div>
+
     <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Employees_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-employees_id" data-rule="required" data-source="employees/employees/index" class="form-control selectpage" name="row[employees_id]" type="text" value="">
+        </div>
+    </div>
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Employees_process_wage')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-employees_process_wage" data-rule="required" class="form-control" step="0.01" name="row[employees_process_wage]" type="number" value="0.00">
@@ -17,7 +37,7 @@
         <div class="col-xs-12 col-sm-8">
             <input id="c-employees_basis_wage" data-rule="required" class="form-control" step="0.01" name="row[employees_basis_wage]" type="number" value="0.00">
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Json')}:</label>
         <div class="col-xs-12 col-sm-8">
@@ -34,24 +54,19 @@
 
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Total_amount')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-total_amount" data-rule="required" class="form-control" step="0.01" name="row[total_amount]" type="number">
         </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">{:__('Years')}:</label>
-        <div class="col-xs-12 col-sm-8">
-            <input id="c-years" data-rule="required" class="form-control" name="row[years]" type="number">
-        </div>
-    </div>
-    <div class="form-group">
+    </div> -->
+    
+   <!--  <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Month')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-month" data-rule="required" class="form-control" name="row[month]" type="number">
         </div>
-    </div>
+    </div> -->
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
         <div class="col-xs-12 col-sm-8">

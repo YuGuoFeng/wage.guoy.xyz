@@ -22,6 +22,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'id',
                 sortName: 'id',
+                showToggle: false,
+                showColumns: false,
+                commonSearch: false,
+                searchFormVisible: true,
+                showExport: false,
+                search:true,
                 columns: [
                     [
                         {checkbox: true},

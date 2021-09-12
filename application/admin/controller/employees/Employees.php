@@ -25,6 +25,10 @@ class Employees extends Backend
         $this->view->assign("stateList", $this->model->getStateList());
     }
 
+    public function userList(){
+        return $this->model->where('state',1)->where('deletetime',null)->column('id,name');
+    }
+
     public function import()
     {
         parent::import();

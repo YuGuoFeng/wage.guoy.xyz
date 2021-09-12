@@ -9,46 +9,46 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Employees_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-employees_id" data-rule="required" data-source="employees/index" class="form-control selectpage" name="row[employees_id]" type="text" value="">
+            <input id="c-employees_id" data-rule="required" data-source="employees/employees/index" class="form-control selectpage" name="row[employees_id]" type="text" value="">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Product_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-product_id" data-rule="required" data-source="product/index" class="form-control selectpage" name="row[product_id]" type="text" value="">
+            <input id="c-product_id" data-rule="required" data-source="product/product/index" class="form-control selectpage" name="row[product_id]" type="text" value="">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Process_id')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-process_id" data-rule="required" data-source="process/index" class="form-control selectpage" name="row[process_id]" type="text" value="">
+            <input id="c-process_id" data-rule="required" data-field="describe"  data-source="product/process/index" class="form-control selectpage" name="row[process_id]" type="text" value="">
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Process_price')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-process_price" data-rule="required" class="form-control" step="0.01" name="row[process_price]" type="number" value="0.00">
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Process_num')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-process_num" data-rule="required" class="form-control" name="row[process_num]" type="number" value="0">
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Total_amount')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-total_amount" data-rule="required" class="form-control" step="0.01" name="row[total_amount]" type="number">
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Text')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-text" class="form-control" name="row[text]" type="text">
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Years')}:</label>
         <div class="col-xs-12 col-sm-8">
             <input id="c-years" data-rule="required" class="form-control" name="row[years]" type="number">
@@ -65,7 +65,7 @@
         <div class="col-xs-12 col-sm-8">
             <input id="c-day" data-rule="required" class="form-control" name="row[day]" type="number">
         </div>
-    </div>
+    </div> -->
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
         <div class="col-xs-12 col-sm-8">

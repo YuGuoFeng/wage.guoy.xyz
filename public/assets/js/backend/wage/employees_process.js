@@ -25,25 +25,40 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'id', title: __('Id')},
-                        {field: 'dates', title: __('Dates'), operate:'RANGE', addclass:'datetimerange', autocomplete:false},
-                        {field: 'employees_id', title: __('Employees_id')},
-                        {field: 'product_id', title: __('Product_id')},
-                        {field: 'process_id', title: __('Process_id')},
-                        {field: 'process_price', title: __('Process_price'), operate:'BETWEEN'},
-                        {field: 'process_num', title: __('Process_num')},
-                        {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN'},
-                        {field: 'text', title: __('Text'), operate: 'LIKE'},
-                        {field: 'years', title: __('Years')},
-                        {field: 'month', title: __('Month')},
-                        {field: 'day', title: __('Day')},
-                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
-                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
-                        {field: 'employees.code_number', title: __('Employees.code_number'), operate: 'LIKE'},
-                        {field: 'employees.name', title: __('Employees.name'), operate: 'LIKE'},
-                        {field: 'product.name', title: __('Product.name'), operate: 'LIKE'},
-                        {field: 'process.code_number', title: __('Process.code_number'), operate: 'LIKE'},
-                        {field: 'process.describe', title: __('Process.describe'), operate: 'LIKE'},
+                        {field: 'id', title: __('Id'),visible:false , operate: false},
+                        {
+                            field: 'dates', 
+                            title: __('Dates'), 
+                            operate: false
+                            // operate:'RANGE', 
+                            // addclass:'datetimerange', 
+                            // autocomplete:false
+                            // align: 'left',
+                            // searchList: $.getJSON('wage/employees_process/date'),
+                        },
+                        
+                        {field: 'employees.code_number', title: __('Employees.code_number'), operate: 'LIKE', operate: false},
+                        {field: 'employees.name', title: __('Employees.name'), operate: 'LIKE', operate: false},
+                        {field: 'product.name', title: __('Product.name'), operate: 'LIKE', operate: false},
+                        {field: 'process.code_number', title: __('Process.code_number'), operate: 'LIKE', operate: false},
+                        {field: 'process.describe', title: __('Process.describe'), operate: 'LIKE', operate: false},
+                       
+                        
+                        {field: 'process_price', title: __('Process_price'), operate:'BETWEEN', operate: false},
+                        {field: 'process_num', title: __('Process_num'), operate: false},
+                        {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
+                        {field: 'text', title: __('Text'), operate: 'LIKE', operate: false},
+
+                        {field: 'employees_id', title: __('Employees_id'), visible: false,searchList:$.getJSON("employees/employees/userList")},
+                        {field: 'product_id', title: __('Product_id'), visible: false,searchList:$.getJSON("product/product/productList")},
+                        {field: 'process_id', title: __('Process_id'), visible: false,searchList:$.getJSON("product/process/processList")},
+
+                        {field: 'years', title: __('Years'),searchList: $.getJSON('wage/employees_process/years'), visible: false},
+                        {field: 'month', title: __('Month'),searchList: $.getJSON('wage/employees_process/month'), visible: false},
+                        // {field: 'day', title: __('Day')},
+                        {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
+                        {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
+                        
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

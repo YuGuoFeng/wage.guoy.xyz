@@ -36,7 +36,9 @@ class Process extends Backend
      * 需要将application/admin/library/traits/Backend.php中对应的方法复制到当前控制器,然后进行修改
      */
     
-
+    public function processList(){
+        return $this->model->where('deletetime',null)->column('id,describe');
+    }
     /**
      * 查看
      */
@@ -70,5 +72,9 @@ class Process extends Backend
         }
         return $this->view->fetch();
     }
+
+
+
+     
 
 }

@@ -37,6 +37,11 @@ class Employees extends Model
     }
 
 
+    public function whereField($id,$field='id'){
+        return $this->where('id',$id)->value($field);
+    }
+
+
     public function getInductionTimeTextAttr($value, $data)
     {
         $value = $value ? $value : (isset($data['induction_time']) ? $data['induction_time'] : '');

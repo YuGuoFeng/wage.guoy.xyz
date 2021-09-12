@@ -31,8 +31,11 @@ class EmployeesProcess extends Model
 
     
 
-
-
+    // 查询用户月几件的总工资
+    public function employeesProcessWage($employees_id,$years,$month){
+       
+        return $this->where(['employees_id'=>$employees_id,'years'=>$years,'month'=>$month])->sum('total_amount');
+    }   
 
 
 

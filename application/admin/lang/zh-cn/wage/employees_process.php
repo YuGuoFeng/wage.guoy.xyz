@@ -7,7 +7,7 @@ return [
     'Process_id'            => '工序表id',
     'Process_price'         => '工序单价',
     'Process_num'           => '工序数量',
-    'Total_amount'          => '合计金额[工序单价x工序数量]',
+    'Total_amount'          => '合计金额',
     'Text'                  => '备注',
     'Years'                 => '年',
     'Month'                 => '月',
