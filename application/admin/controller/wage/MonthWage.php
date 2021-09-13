@@ -207,7 +207,7 @@ class MonthWage extends Backend
                         }
                       
                     }
-                    $params['employees_process_wage'] = $row['employees_process_wage'];
+                    // $params['employees_process_wage'] = $row['employees_process_wage'];
                     //查询用户的基础工资
                     $params['employees_basis_wage'] = $row['employees_basis_wage'];
 
