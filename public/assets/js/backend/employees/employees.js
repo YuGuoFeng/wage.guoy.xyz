@@ -28,7 +28,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'code_number', title: __('Code_number'), operate: 'LIKE'},
                         {field: 'name', title: __('Name'), operate: 'LIKE'},
-                        {field: 'gender', title: __('Gender')},
+                        {field: 'gender', title: __('Gender'), searchList: {"0":__('Gender 0'),"1":__('Gender 1')}, formatter: Table.api.formatter.normal},
                         {field: 'age', title: __('Age')},
                         {field: 'wage', title: __('Wage'), operate:'BETWEEN'},
                         {field: 'induction_time', title: __('Induction_time'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},

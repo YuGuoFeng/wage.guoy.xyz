@@ -140,11 +140,15 @@ class MonthWage extends Backend
                         }
                       
                     }
-                    $params['employees_process_wage'] = 0;
-                    //查询用户的基础工资
-                    $params['employees_basis_wage'] = (new Employees)->whereField($params['employees_id'],'wage');
 
-                    $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage'];
+                    $user = (new Employees)->where('id',$params['employees_id'])->find();
+
+                    $params['wage_base'] = $user['wage_base'];
+                    $params['five_ratio'] = config('site.five_insurance');
+                    $params['employees_process_wage'] = $params['employees_process_wage']??0;
+                    //查询用户的基础工资
+                    // $params['employees_basis_wage'] = $user['wage'];//(new Employees)->whereField($params['employees_id'],'wage');
+                    $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['hous_fill']+(float)$params['rice_fill']-(float)$params['five_insurance'];
 
                     $result = $this->model->allowField(true)->save($params);
                     Db::commit();
@@ -211,7 +215,7 @@ class MonthWage extends Backend
                     //查询用户的基础工资
                     $params['employees_basis_wage'] = $row['employees_basis_wage'];
 
-                    $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage'];
+                    $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['hous_fill']+(float)$params['rice_fill']-(float)$params['five_insurance'];
 
                     $result = $row->allowField(true)->save($params);
                     Db::commit();

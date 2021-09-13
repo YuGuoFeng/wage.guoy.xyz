@@ -35,6 +35,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         
                         {field: 'employees_process_wage', title: __('Employees_process_wage'), operate:'BETWEEN', operate: false},
                         {field: 'employees_basis_wage', title: __('Employees_basis_wage'), operate:'BETWEEN', operate: false},
+                        {field: 'five_insurance', title: __('Five_insurance'), operate: false},
+                        {field: 'hous_fill', title: __('Hous_fill'), operate: false},
+                        {field: 'rice_fill', title: __('Rice_fill'), operate: false},
                         {field: 'json', title: __('Json'), operate: false},
                         {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
 
@@ -115,6 +118,28 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
 
         add: function () {
             Controller.api.bindevent();
+
+            $(document).on("change", "#c-employees_id", function () {
+                var em_id = $("#c-employees_id").val();
+                console.log(em_id);
+                $.ajax({
+                    url:'employees/employees/userInfo',
+                    data:{id:em_id},
+                    success:function(data,ret){
+                        var json = data.data;
+                        if(data.code ==1){
+                            $("#c-employees_basis_wage").val(json.wage);
+                            $("#c-five_insurance").val(data.f_i);
+                            $("#tishi").html(`<span role="alert" class="msg-wrap n-error">*<span class="n-msg">(1-`+data.five_insurance+`/100)x`+json.wage_base+`</span></span>`);
+                        }
+                        console.log(json);
+                    },
+                    error:function(){
+                        layer.close(index);
+                    }
+                });
+            });
+
         },
         edit: function () {
             Controller.api.bindevent();

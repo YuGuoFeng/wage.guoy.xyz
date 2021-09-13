@@ -23,10 +23,26 @@ class Employees extends Backend
         parent::_initialize();
         $this->model = new \app\common\model\Employees;
         $this->view->assign("stateList", $this->model->getStateList());
+        $this->view->assign("getGenderList", $this->model->getGenderList());
     }
 
     public function userList(){
         return $this->model->where('state',1)->where('deletetime',null)->column('id,name');
+    }
+
+    public function userInfo($id){
+        $five_insurance = config('site.five_insurance');
+        $row =  $this->model->where('id',$id)->find();
+        $code = 0;
+        $data=[];
+        $fi = 0;
+        if(!empty($row)){
+            $code = 1;
+            $data = $row;
+            $fi = (1-$five_insurance/100)*$row['wage_base'];
+        }
+
+        return json(['code'=>$code,'data'=>$data,'five_insurance'=>$five_insurance,'f_i'=>$fi]);
     }
 
     public function import()

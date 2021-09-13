@@ -55,6 +55,7 @@ return [
     'Forbidden ip'                => '禁止IP',
     'Languages'                   => '语言',
     'Fixed page'                  => '后台固定页',
+    'Five insurance'              => '五险一金',
     'Category type'               => '分类类型',
     'Config group'                => '配置分组',
     'Attachment category'         => '附件类别',

@@ -36,6 +36,10 @@ class Employees extends Model
         return ['0' => __('State 0'), '1' => __('State 1')];
     }
 
+    public function getGenderList()
+    {
+        return ['0' => __('Gender 0'), '1' => __('Gender 1')];
+    }
 
     public function whereField($id,$field='id'){
         return $this->where('id',$id)->value($field);
