@@ -2,8 +2,8 @@
 
 return [
     'Code_number'    => '员工编号',
-    'Name'           => '名称',
-    'Gender'         => '性别[0:女,1:男]',
+    'Name'           => '姓名',
+    'Gender'         => '性别',
     'Gender 0'         => '女',
     'Gender 1'         => '男',
     'Age'            => '年龄',

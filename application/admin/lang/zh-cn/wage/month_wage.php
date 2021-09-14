@@ -18,5 +18,5 @@ return [
     'Updatetime'             => '更新时间',
     'Deletetime'             => '删除时间',
     'Employees.code_number'  => '员工编号',
-    'Employees.name'         => '名称'
+    'Employees.name'         => '姓名'
 ];

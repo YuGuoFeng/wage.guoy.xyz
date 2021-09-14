@@ -16,7 +16,7 @@ return [
     'Updatetime'            => '更新时间',
     'Deletetime'            => '删除时间',
     'Employees.code_number' => '员工编号',
-    'Employees.name'        => '名称',
+    'Employees.name'        => '姓名',
     'Product.name'          => '名称',
     'Process.code_number'   => '工序编号',
     'Process.describe'      => '工序描述'

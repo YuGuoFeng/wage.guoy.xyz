@@ -19,10 +19,10 @@ return array (
   'configgroup' => 
   array (
     'basic' => '基础配置',
-    'email' => '邮件配置',
+    /* 'email' => '邮件配置',
     'dictionary' => '字典配置',
     'user' => '会员配置',
-    'example' => '示例分组',
+    'example' => '示例分组', */
   ),
   'mail_type' => '1',
   'mail_smtp_host' => 'smtp.qq.com',
