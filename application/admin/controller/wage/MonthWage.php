@@ -25,7 +25,7 @@ class MonthWage extends Backend
      * @var \app\common\model\MonthWage
      */
     protected $model = null;
-
+    protected $noNeedRight = ['table1', 'table2'];
     public function _initialize()
     {
         parent::_initialize();
@@ -73,7 +73,7 @@ class MonthWage extends Backend
         ];
         return $data;
     }
-
+    
     /**
      * 查看
      */
@@ -108,7 +108,70 @@ class MonthWage extends Backend
         return $this->view->fetch();
     }
 
+    /**
+     * 查看
+     */
+    public function table1()
+    {
+        //当前是否为关联查询
+        $this->relationSearch = true;
+        //设置过滤方法
+        $this->request->filter(['strip_tags', 'trim']);
+        if ($this->request->isAjax()) {
+            //如果发送的来源是Selectpage，则转发到Selectpage
+            if ($this->request->request('keyField')) {
+                return $this->selectpage();
+            }
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
 
+            $list = $this->model
+                    ->with(['employees'])
+                    ->where($where)
+                    ->order($sort, $order)
+                    ->paginate($limit);
+
+            foreach ($list as $row) {
+                
+                $row->getRelation('employees')->visible(['code_number','name']);
+            }
+
+            $result = array("total" => $list->total(), "rows" => $list->items());
+
+            return json($result);
+        }
+        return $this->view->fetch();
+    }
+
+    public function table2()
+    {
+        //当前是否为关联查询
+        $this->relationSearch = true;
+        //设置过滤方法
+        $this->request->filter(['strip_tags', 'trim']);
+        if ($this->request->isAjax()) {
+            //如果发送的来源是Selectpage，则转发到Selectpage
+            if ($this->request->request('keyField')) {
+                return $this->selectpage();
+            }
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+
+            $list = $this->model
+                    ->with(['employees'])
+                    ->where($where)
+                    ->order($sort, $order)
+                    ->paginate($limit);
+
+            foreach ($list as $row) {
+                
+                $row->getRelation('employees')->visible(['code_number','name']);
+            }
+
+            $result = array("total" => $list->total(), "rows" => $list->items());
+
+            return json($result);
+        }
+        return $this->view->fetch();
+    }
      /**
      * 添加
      */
@@ -150,7 +213,7 @@ class MonthWage extends Backend
                     // $params['employees_basis_wage'] = $user['wage'];//(new Employees)->whereField($params['employees_id'],'wage');
                     // $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['hous_fill']+(float)$params['rice_fill']-(float)$params['five_insurance'];
                     $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['month_fill']-(float)$params['five_insurance'];
-
+                    $params['all_total_amount'] = $params['total_amount']+(float)$params['five_insurance'];
                     $result = $this->model->allowField(true)->save($params);
                     Db::commit();
                 } catch (ValidateException $e) {
@@ -218,7 +281,7 @@ class MonthWage extends Backend
 
                     // $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['hous_fill']+(float)$params['rice_fill']-(float)$params['five_insurance'];
                     $params['total_amount'] = (float)$params['employees_basis_wage'] + $other + $params['employees_process_wage']+(float)$params['month_fill']-(float)$params['five_insurance'];
-
+                    $params['all_total_amount'] = $params['total_amount']+(float)$params['five_insurance'];
                     $result = $row->allowField(true)->save($params);
                     Db::commit();
                 } catch (ValidateException $e) {

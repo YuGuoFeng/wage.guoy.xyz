@@ -50,9 +50,11 @@ class MonthWage extends Model
             }
             //合计金额
             // $total_amount = (float)$row['employees_basis_wage'] + (float)$employees_process_wage + $other+(float)$row['hous_fill']+(float)$row['rice_fill']-(float)$row['five_insurance'];;
-            $total_amount = (float)$row['employees_basis_wage'] + (float)$employees_process_wage + $other+(float)$row['month_fill']-(float)$row['five_insurance'];;
+            $total_amount = (float)$row['employees_basis_wage'] + (float)$employees_process_wage + $other+(float)$row['month_fill']-(float)$row['five_insurance'];
+            $all_total_amount = $total_amount+(float)$row['five_insurance'];
             $row->employees_process_wage = $employees_process_wage;
             $row->total_amount = $total_amount;
+            $row->all_total_amount = $all_total_amount;
             $res = $row->save();
 
         }else{
