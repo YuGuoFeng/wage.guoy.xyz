@@ -35,10 +35,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         
                         {field: 'employees_process_wage', title: __('Employees_process_wage'), operate:'BETWEEN', operate: false},
                         {field: 'employees_basis_wage', title: __('Employees_basis_wage'), operate:'BETWEEN', operate: false},
-                        {field: 'five_insurance', title: __('Five_insurance'), operate: false},
-                        {field: 'hous_fill', title: __('Hous_fill'), operate: false},
-                        {field: 'rice_fill', title: __('Rice_fill'), operate: false},
+                        // {field: 'hous_fill', title: __('Hous_fill'), operate: false},
+                        // {field: 'rice_fill', title: __('Rice_fill'), operate: false},
+                        {field: 'month_fill', title: __('Month_fill'), operate: false},
                         {field: 'json', title: __('Json'), operate: false},
+                        {field: 'five_insurance', title: __('Five_insurance'), operate: false},
                         {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
 
                         
