@@ -39,7 +39,7 @@ class Employees extends Backend
         if(!empty($row)){
             $code = 1;
             $data = $row;
-            $fi = (1-$five_insurance/100)*$row['wage_base'];
+            $fi = ($five_insurance/100)*$row['wage_base'];
         }
 
         return json(['code'=>$code,'data'=>$data,'five_insurance'=>$five_insurance,'f_i'=>$fi]);

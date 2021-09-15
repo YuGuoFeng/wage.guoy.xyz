@@ -45,7 +45,7 @@
         <div class="col-xs-12 col-sm-5">
             <input id="c-five_insurance" readonly unselectable='on' data-rule="required" class="form-control" step="0.01" name="row[five_insurance]" type="number" value="{$row.five_insurance|htmlentities}">
         </div>
-        <div id="tishi"><span role="alert" class="msg-wrap n-error">*<span class="n-msg">(1-{$row.five_ratio|htmlentities}/100)x{$row.wage_base|htmlentities}</span></span></div>
+        <div id="tishi"><span role="alert" class="msg-wrap n-error">*<span class="n-msg">({$row.five_ratio|htmlentities}/100)x{$row.wage_base|htmlentities}</span></span></div>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Month_fill')}:</label>

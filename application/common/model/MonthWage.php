@@ -65,8 +65,7 @@ class MonthWage extends Model
             $five_ratio = config('site.five_insurance');
 
             //扣除五险金额
-            $five_insurance = (1-$five_ratio/100)*$wage_base;
-
+            $five_insurance = ($five_ratio/100)*$wage_base;
             //合计金额
             $total_amount = (float)$employees_basis_wage + (float)$employees_process_wage - (float)$five_insurance;
 
