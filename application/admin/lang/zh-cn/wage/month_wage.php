@@ -15,6 +15,7 @@ return [
     'All_total_amount'       => '合计工资',
     'Years'                  => '年',
     'Month'                  => '月',
+    'Text'                   => '备注',
     'Createtime'             => '创建时间',
     'Updatetime'             => '更新时间',
     'Deletetime'             => '删除时间',

@@ -236,6 +236,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'five_insurance', title: __('Five_insurance'), operate: false},
                         {field: 'all_total_amount', title: __('All_total_amount'), operate:'BETWEEN', operate: false},
                         {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
+                        {field: 'text', title: __('Text'), operate: false},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime, operate: false},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
