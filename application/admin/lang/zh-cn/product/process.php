@@ -5,6 +5,7 @@ return [
     'Product_id'   => '产品表id',
     'Describe'     => '工序描述',
     'Price'        => '单价',
+    'Unit'         => '单位',
     'Createtime'   => '创建时间',
     'Updatetime'   => '更新时间',
     'Deletetime'   => '删除时间',

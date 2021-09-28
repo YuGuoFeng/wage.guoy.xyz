@@ -36,6 +36,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'product_id', title: __('Product_id')},
                         {field: 'describe', title: __('Describe'), operate: 'LIKE'},
                         {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'unit', title: __('Unit'),operate: false },
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
                         {field: 'product.name', title: __('Product.name'), operate: 'LIKE'},
