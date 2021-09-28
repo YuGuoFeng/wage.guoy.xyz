@@ -131,12 +131,13 @@ class EmployeesProcess extends Backend
                         $this->model->validateFailException(true)->validate($validate);
                     }
 
-                    $info = $this->model->where('dates',$params['dates'])->find('id');
+                    $info = $this->model->where('dates',$params['dates'])->where('employees_id',$params['employees_id'])->find('id');
                     if(!empty($info['id'])){
                         throw new Exception("该员工".$params['dates']."号工资已经录入过了");
                     }
-                    
-                    $params['process_price'] = Process::where('id',$params['process_id'])->value('price');
+                    $p_info = Process::where('id',$params['process_id'])->find();
+                    $params['process_price'] = $p_info['price'];//Process::where('id',$params['process_id'])->value('price');
+                    $params['process_unit'] = $p_info['unit'];
                     $params['total_amount'] =  $params['process_price']*$params['process_num'];
                     $dates = explode('-',$params['dates']);
                     $params['years'] = $dates[0]??0;
@@ -202,8 +203,13 @@ class EmployeesProcess extends Backend
                         $row->validateFailException(true)->validate($validate);
                     }
 
+                    if($row['process_id'] != $params['process_id']){
+                        $p_info = Process::where('id',$params['process_id'])->find();
+                        $params['process_price'] = $p_info['price']; //Process::where('id',$params['process_id'])->value('price');
+                        $params['process_unit'] = $p_info['unit'];
+                    }
 
-                    $params['process_price'] = Process::where('id',$params['process_id'])->value('price');
+                    
                     $params['total_amount'] =  $params['process_price']*$params['process_num'];
                     $dates = explode('-',$params['dates']);
                     $params['years'] = $dates[0]??0;

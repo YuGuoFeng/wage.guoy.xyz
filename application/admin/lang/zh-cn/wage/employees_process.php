@@ -6,6 +6,7 @@ return [
     'Product_id'            => '产品ID',
     'Process_id'            => '工序表id',
     'Process_price'         => '工序单价',
+    'Process_unit'         => '工序单位',
     'Process_num'           => '工序数量',
     'Total_amount'          => '合计金额',
     'Text'                  => '备注',

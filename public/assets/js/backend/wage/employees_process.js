@@ -42,9 +42,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'product.name', title: __('Product.name'), operate: 'LIKE', operate: false},
                         {field: 'process.code_number', title: __('Process.code_number'), operate: 'LIKE', operate: false},
                         {field: 'process.describe', title: __('Process.describe'), operate: 'LIKE', operate: false},
-                       
                         
                         {field: 'process_price', title: __('Process_price'), operate:'BETWEEN', operate: false},
+
+                        {field: 'process_unit', title: __('Process_unit'), operate: false},
+                        
                         {field: 'process_num', title: __('Process_num'), operate: false},
                         {field: 'total_amount', title: __('Total_amount'), operate:'BETWEEN', operate: false},
                         {field: 'text', title: __('Text'), operate: 'LIKE', operate: false},
